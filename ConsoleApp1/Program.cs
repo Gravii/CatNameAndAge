@@ -10,6 +10,10 @@ namespace ConsoleApp1
         {
             Cat cat = new Cat("Рамис", new DateTime(2007, 6, 20));
             Console.WriteLine($"Коту по имени {cat.Name} уже {cat.GetAge()} лет");
+
+            cat.HungryStatus = 150;
+
+            Console.ReadLine();
         }
     }
 }
