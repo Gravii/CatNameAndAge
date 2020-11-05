@@ -25,16 +25,15 @@ namespace ConsoleApp1
             get; set;
         }
 
-        public void MakeNoise()
-        {
-            Console.WriteLine(Name + " мяукает");
-        }
+        public void MakeNoise() => Console.WriteLine(Name + " мяукает");
 
         public int GetAge()
         {
             return (DateTime.Today - BirthDay).Days / 365;
         }
 
+        public event EventHandler HungryStatusChanged;
+        public void Feed() => HungryStatus = 100;
         public byte HungryStatus
         {
             get { return _hungryStatus; }
@@ -46,6 +45,9 @@ namespace ConsoleApp1
                     _hungryStatus = 100;
                 else
                     _hungryStatus = value;
+
+                if (_hungryStatus != value)
+                    HungryStatusChanged?.Invoke(this, null); 
             }
         }
 
@@ -56,7 +58,7 @@ namespace ConsoleApp1
             if (HungryStatus < 10)
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("Кот умерает от голода"); // Press F
+                Console.WriteLine("Кот умерает от голода");
             }
             else if (HungryStatus >= 10 && HungryStatus <= 40)
             {
@@ -84,8 +86,9 @@ namespace ConsoleApp1
         {
             await Task.Delay(1000);
             HungryStatus -= 10;
-            GetStatus();
             await LifeCircle();
         }
+
+        
     }
 }
