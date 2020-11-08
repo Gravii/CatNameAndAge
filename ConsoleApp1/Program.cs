@@ -12,7 +12,6 @@ namespace ConsoleApp1
             Cat cat = new Cat("Рамис", new DateTime(2007, 6, 20));
             cat.MakeNoise();
             Console.WriteLine($"Коту по имени {cat.Name} уже {cat.GetAge()} лет");
-            // cat.HungryStatus = 150;
 
             Cat cat2 = new Cat("Михалыч", new DateTime(2015, 6, 1));
             cat2.MakeNoise();
