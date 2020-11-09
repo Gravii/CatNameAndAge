@@ -10,17 +10,18 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Cat cat = new Cat("Рамис", new DateTime(2007, 6, 20));
-            cat.MakeNoise();
+            // cat.MakeNoise();
             Console.WriteLine($"Коту по имени {cat.Name} уже {cat.GetAge()} лет");
 
             Cat cat2 = new Cat("Михалыч", new DateTime(2015, 6, 1));
-            cat2.MakeNoise();
+            // cat2.MakeNoise();
             Console.WriteLine($"Коту по имени {cat2.Name} уже {cat2.GetAge()} лет");
 
             CatSmartHouse catHouse = new CatSmartHouse(900);
             catHouse.AddCat(cat);
             catHouse.AddCat(cat2);
 
+            Console.SetCursorPosition(0, catHouse.CatsCount + 1);
             Console.ReadLine();
         }
 
