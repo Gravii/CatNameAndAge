@@ -28,7 +28,7 @@ namespace ConsoleApp1
                 return cats.Count;
             }
         }
-            private void Cat_HungryStatusChanged(object sender, EventArgs e)
+        private void Cat_HungryStatusChanged(object sender, EventArgs e)
         {
             var cat = (Cat)sender;
             if (cat.HungryStatus <= 20 && FoodResourse > 0)
